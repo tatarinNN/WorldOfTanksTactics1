@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/____"
+    tools:context=".CharacterActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_menu_shade" />
+
+    <com.example.myapplication1.AshView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/safe_area"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glHalf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <!-- ===== Анкета ===== -->
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="10dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/glHalf"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_panel"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    style="@style/GameTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/game_character_title"
+                    android:textSize="22sp" />
+
+                <TextView
+                    style="@style/GameLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/game_name_label"
+                    android:textColor="@color/game_brass_light" />
+
+                <EditText
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="4dp"
+                    android:autofillHints="name"
+                    android:background="@drawable/bg_edittext"
+                    android:hint="@string/game_name_hint"
+                    android:imeOptions="actionDone|flagNoExtractUi|flagNoFullscreen"
+                    android:inputType="textPersonName|textCapWords"
+                    android:maxLength="20"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:singleLine="true"
+                    android:textColor="@color/game_text"
+                    android:textColorHint="#7A7266"
+                    android:textSize="16sp" />
+
+                <TextView
+                    style="@style/GameLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/game_gender_label"
+                    android:textColor="@color/game_brass_light" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnMale"
+                        style="@style/GameButton"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:text="@string/game_male" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnFemale"
+                        style="@style/GameButton"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:text="@string/game_female" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swVoice"
+                    style="@style/GameSwitch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/game_voice_switch" />
+
+                <TextView
+                    style="@style/GameLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/game_music_label"
+                    android:textColor="@color/game_brass_light" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnMusicRec"
+                        style="@style/GameButton.Small"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1.2"
+                        android:text="@string/game_music_recommended" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnMusicCustom"
+                        style="@style/GameButton.Small"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:text="@string/game_music_custom" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnMusicOff"
+                        style="@style/GameButton.Small"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:text="@string/game_music_off" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnMusicLibrary"
+                    style="@style/GameButton.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/game_music_library"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnBack"
+                        style="@style/GameButton"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:text="@string/game_back" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnStart"
+                        style="@style/GameButton"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1.6"
+                        android:text="@string/game_start"
+                        android:textSize="17sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ===== Выбор аватара ===== -->
+        <TextView
+            android:id="@+id/avatarLabel"
+            style="@style/GameLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:text="@string/game_avatar_label"
+            android:textColor="@color/game_brass_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/glHalf"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/previewFrame"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_avatar_frame"
+            android:padding="6dp"
+            app:layout_constraintBottom_toTopOf="@+id/avatarScroll"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/avatarLabel"
+            app:layout_constraintStart_toStartOf="@+id/avatarLabel"
+            app:layout_constraintTop_toBottomOf="@+id/avatarLabel">
+
+            <ImageView
+                android:id="@+id/avatarPreview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/game_avatar_label"
+                android:scaleType="fitCenter" />
+        </FrameLayout>
+
+        <HorizontalScrollView
+            android:id="@+id/avatarScroll"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="10dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/avatarLabel"
+            app:layout_constraintStart_toStartOf="@+id/avatarLabel">
+
+            <LinearLayout
+                android:id="@+id/avatarList"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" />
+        </HorizontalScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">My Application1</string>
+    <string name="todo">TODO</string>
+    <string name="button">Button</string>
+    <string name="textview">TextView</string>
+    <string name="history_of_pictures_1948">History of pictures: 1948</string>
+    <string name="Выход">Выход</string>
+    <string name="Настройки">Настройки</string>
+    <string name="Дополнительно">Дополнительно</string>
+    <string name="Играть">Играть</string>
+</resources>

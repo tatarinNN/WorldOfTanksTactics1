@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/____"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/safe_area"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- левая колонка 36% ширины, справа картинка -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.36" />
+
+        <!-- ===== Аватар говорящего ===== -->
+        <FrameLayout
+            android:id="@+id/avatarFrame"
+            android:layout_width="92dp"
+            android:layout_height="92dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_avatar_frame"
+            android:padding="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/avatarView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/game_avatar_desc"
+                android:scaleType="fitCenter" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/speakerName"
+            style="@style/GameLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:textColor="@color/game_brass_light"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/avatarFrame"
+            app:layout_constraintStart_toStartOf="@+id/avatarFrame"
+            app:layout_constraintTop_toBottomOf="@+id/avatarFrame"
+            tools:text="Командир Ринат" />
+
+        <!-- ===== Карта / Танк / Выход ===== -->
+        <LinearLayout
+            android:id="@+id/topButtons"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="6dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/glLeft"
+            app:layout_constraintStart_toEndOf="@+id/avatarFrame"
+            app:layout_constraintTop_toTopOf="@+id/avatarFrame">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/mapbutton"
+                style="@style/GameButton.Small"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/game_map" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/TankButton"
+                style="@style/GameButton.Small"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/game_tank" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/ExitButton"
+                style="@style/GameButton.Small"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:text="@string/game_exit" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/topBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="speakerName,topButtons" />
+
+        <!-- ===== Текст хода (прокручивается, если длинный) ===== -->
+        <ScrollView
+            android:id="@+id/textScroll"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/bg_panel"
+            android:fadeScrollbars="false"
+            android:scrollbarSize="3dp"
+            app:layout_constraintBottom_toTopOf="@+id/audioBar"
+            app:layout_constraintEnd_toStartOf="@+id/glLeft"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topBarrier"
+            app:layout_goneMarginBottom="6dp">
+
+            <TextView
+                android:id="@+id/Opisanie"
+                style="@style/GameLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="2dp"
+                android:padding="10dp"
+                android:textSize="14sp"
+                tools:text="Вам открываются прекрасные виды на озеро ТуркВойс и горы Хомстейк и Вейл Скай." />
+        </ScrollView>
+
+        <!-- ===== Плеер озвучки ===== -->
+        <LinearLayout
+            android:id="@+id/audioBar"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/bg_panel"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/choiceArea"
+            app:layout_constraintEnd_toStartOf="@+id/glLeft"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible">
+
+            <ImageButton
+                android:id="@+id/audioPlay"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/game_audio_play"
+                android:src="@drawable/ic_game_pause" />
+
+            <SeekBar
+                android:id="@+id/audioSeek"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:progressBackgroundTint="#5A5048"
+                android:progressTint="@color/game_brass_light"
+                android:thumbTint="@color/game_brass_light" />
+
+            <TextView
+                android:id="@+id/audioTime"
+                style="@style/GameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/game_text_dim"
+                android:textSize="11sp"
+                tools:text="0:12 / 0:40" />
+
+            <ImageButton
+                android:id="@+id/audioMute"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/game_audio_mute"
+                android:src="@drawable/ic_game_volume_on" />
+        </LinearLayout>
+
+        <!-- ===== Кадр игры + слои карты и матчасти поверх ===== -->
+        <ImageView
+            android:id="@+id/shot_1A"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/bg_image_frame"
+            android:contentDescription="@string/todo"
+            android:padding="1dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/choiceArea"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/glLeft"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/mapimage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/todo"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="@+id/shot_1A"
+            app:layout_constraintEnd_toEndOf="@+id/shot_1A"
+            app:layout_constraintStart_toStartOf="@+id/shot_1A"
+            app:layout_constraintTop_toTopOf="@+id/shot_1A" />
+
+        <ImageView
+            android:id="@+id/tankinfo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/todo"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="@+id/shot_1A"
+            app:layout_constraintEnd_toEndOf="@+id/shot_1A"
+            app:layout_constraintStart_toStartOf="@+id/shot_1A"
+            app:layout_constraintTop_toTopOf="@+id/shot_1A" />
+
+        <!-- ===== Музыка: кнопка в углу картинки и название трека ===== -->
+        <ImageButton
+            android:id="@+id/musicButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/bg_round_button"
+            android:contentDescription="@string/game_music_desc"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_music"
+            app:layout_constraintEnd_toEndOf="@+id/shot_1A"
+            app:layout_constraintTop_toTopOf="@+id/shot_1A" />
+
+        <TextView
+            android:id="@+id/nowPlaying"
+            style="@style/GameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/bg_panel"
+            android:maxWidth="260dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:textColor="@color/game_brass_light"
+            android:textSize="12sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/musicButton"
+            app:layout_constraintEnd_toStartOf="@+id/musicButton"
+            app:layout_constraintTop_toTopOf="@+id/musicButton"
+            tools:text="♪ Head-on Attack"
+            tools:visibility="visible" />
+
+        <!-- зона кнопок выбора: к ней привязаны картинка и плеер, чтобы не зависеть от скрытой кнопки -->
+        <Space
+            android:id="@+id/choiceArea"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- ===== Кнопки выбора: делят ширину поровну; если одна скрыта — вторая на всю ширину ===== -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonleft"
+            style="@style/GameButton.Choice"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonright"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_goneMarginEnd="8dp"
+            tools:text="Налево" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonright"
+            style="@style/GameButton.Choice"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/buttonleft"
+            app:layout_goneMarginStart="8dp"
+            tools:text="Направо" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

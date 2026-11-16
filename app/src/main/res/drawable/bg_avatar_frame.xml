@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Рамка в духе ретро-HUD: тёмная плита, двойная окантовка -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item><shape><corners android:radius="4dp" /><solid android:color="#0B0908" /></shape></item>
+    <item android:left="2dp" android:top="2dp" android:right="2dp" android:bottom="2dp">
+        <shape>
+            <corners android:radius="3dp" />
+            <gradient android:angle="270" android:startColor="#6E5A3A" android:endColor="#3A2E1E" />
+        </shape>
+    </item>
+    <item android:left="5dp" android:top="5dp" android:right="5dp" android:bottom="5dp">
+        <shape><solid android:color="#0B0908" /></shape>
+    </item>
+</layer-list>

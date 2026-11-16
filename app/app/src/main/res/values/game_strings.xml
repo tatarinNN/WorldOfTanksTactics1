@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="game_character_title">Личное дело танкиста</string>
+    <string name="game_name_label">Имя</string>
+    <string name="game_name_hint">Например, Ринат</string>
+    <string name="game_gender_label">Пол</string>
+    <string name="game_male">Мужчина</string>
+    <string name="game_female">Женщина</string>
+    <string name="game_avatar_label">Выберите аватар</string>
+    <string name="game_voice_switch">Звуки событий и переговоры</string>
+    <string name="game_start">В бой!</string>
+    <string name="game_back">Назад</string>
+    <string name="game_settings_title">Настройки</string>
+    <string name="game_map">Карта</string>
+    <string name="game_tank">Танк</string>
+    <string name="game_exit">Выход</string>
+    <string name="game_audio_play">Воспроизвести / пауза</string>
+    <string name="game_audio_mute">Включить / выключить озвучку</string>
+    <string name="game_avatar_desc">Аватар говорящего персонажа</string>
+    <string name="game_music_label">Музыка</string>
+    <string name="game_music_switch">Фоновая музыка</string>
+    <string name="game_music_recommended">Рекомендуемая</string>
+    <string name="game_music_custom">Свои треки</string>
+    <string name="game_music_off">Без музыки</string>
+    <string name="game_music_volume">Громкость музыки</string>
+    <string name="game_music_library">Мои треки и плейлисты</string>
+    <string name="game_my_tracks">Мои треки</string>
+    <string name="game_add_tracks">+ Добавить</string>
+    <string name="game_tracks_empty">Пока пусто. Нажмите «+ Добавить» и выберите музыку на телефоне (можно сразу несколько файлов).</string>
+    <string name="game_playlists">Плейлисты</string>
+    <string name="game_create_playlist">Создать из отмеченных треков</string>
+    <string name="game_all_tracks">Все мои треки</string>
+    <string name="game_music_desc">Музыка</string>
+</resources>

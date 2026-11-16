@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="game_text">#EDE3C8</color>
+    <color name="game_text_dim">#B8AE96</color>
+    <color name="game_brass">#B89B5E</color>
+    <color name="game_brass_light">#E2C98A</color>
+    <color name="game_steel_top">#57504A</color>
+    <color name="game_steel_bottom">#2B2724</color>
+    <color name="game_panel">#D91B1816</color>
+    <color name="game_red">#C03A2B</color>
+</resources>

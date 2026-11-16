@@ -1,0 +1,34 @@
+val shot_1A = findViewById<ImageView>(R.id.shot_1A)
+        val imagePath = "РУТ1/1-3/shot_002.1.0.jpg"
+        Glide.with(this)
+            .load("file:///android_asset/$imagePath")
+            .into(shot_1A)
+
+
+val shot_1A = findViewById<ImageView>(R.id.shot_1A)
+        var bl: Button=findViewById(R.id.buttonleft)
+        var imagePath = "РУТ1/1-3/shot_002.1.0.jpg"
+        Glide.with(this)
+            .load("file:///android_asset/$imagePath")
+            .into(shot_1A)
+
+        bl.setOnClickListener {
+            var imagePath = "РУТ1/1-3/shot_1.jpg"
+            Glide.with(this)
+                .load("file:///android_asset/$imagePath")
+                .into(shot_1A)
+
+
+else if (root==1 && solution=="4.2.0")
+            {
+                opisanie.text = "<Вы уже у позиции вражеского танка, Наводчик уже наводит орудие>"
+                bl.setText("Дальше")
+                br.setText("")
+                solution = "4.3.0"
+                imagePath = "РУТ1/4/shot_004.3.0.jpg"; Glide.with(this) .load("file:///android_asset/$imagePath").into(shot_1A)
+            }
+
+
+ myButton.setText("Новый текст")  ==  myButton.text="Новый текст"
+
+
